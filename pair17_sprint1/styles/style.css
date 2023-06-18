@@ -1,0 +1,197 @@
+:root {
+  --font-sans: "Source Sans Pro", "Roboto", "Georgia", sans-serif;
+  --button-lr-padding: 4em;
+  --button-tb-padding: 0.5em;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: white;
+  color: black;
+  font-family: var(--font-sans);
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+button {
+  border: 0.1em solid black;
+  border-radius: 4px;
+  background-color: white;
+
+  padding: var(--button-tb-padding) var(--button-lr-padding) var(--button-tb-padding) var(--button-lr-padding); /* top right bottom left */
+}
+
+button:hover {
+  background-color: wheat;
+}
+
+input {
+  width: 3em;
+  text-align: center;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 
+
+  Flex Container Styles
+
+*/
+
+.container {
+  display: flex;
+}
+
+/* Flex Direction */
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+/* Justify Content */
+.space-around {
+  justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* Align Items */
+.align-center {
+  align-items: center;
+}
+
+/* 
+
+  Border Styles
+
+*/
+
+.border-solid {
+  border-style: solid;
+}
+
+.border-black {
+  border-color: black;
+}
+
+.border-w-01e {
+  border-width: 0.1em;
+}
+
+/* 
+
+  Spacing Styles 
+
+*/
+
+.gap {
+  gap: 0.5em;
+}
+
+.gap-2 {
+  gap: 2em;
+}
+
+/* Width */
+
+.w-75p {
+  width: 75%;
+}
+
+.w-100p {
+  width: 100%;
+}
+
+.w-75v {
+  width: 75vw;
+}
+
+.w-100v {
+  width: 100vw;
+}
+
+/* Height */
+
+.h-75p {
+  height: 75%;
+}
+
+.h-100p {
+  height: 100%;
+}
+
+.h-75v {
+  height: 75vh;
+}
+
+.h-100v {
+  height: 100vh;
+}
+
+/* Padding  */
+.p-1 {
+  padding: 1em;
+}
+
+.p-2 {
+  padding: 2em;
+}
+
+/* Margin */
+
+.m-2 {
+  margin: 2em;
+}
+
+/* 
+
+  Misc
+
+*/
+.display-none {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}

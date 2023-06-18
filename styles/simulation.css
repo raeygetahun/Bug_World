@@ -1,0 +1,115 @@
+.option-container {
+  width: 75%;
+  justify-content: flex-start;
+}
+
+.option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5em;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.statistic {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.file-upload:hover {
+  color: gray;
+}
+
+#world {
+  flex: 1;
+}
+
+#map {
+  border: 3px solid black
+}
+
+/* Grid container */
+.hex-grid {
+  display: grid;
+  list-style-type: none;
+  margin: 0;
+  padding: 1rem;
+  gap: 0 0; /* Reduce the gap */
+  background-color: rgb(246, 195, 195); /* Set the background color to match the cells */
+}
+
+/* Container for one individual cell */
+.hex-cell {
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+/* Hexagonal shape of the cell */
+.cell {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  clip-path: polygon(0 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0, 0 25%);
+}
+
+
+/* Obstacle color */
+.obstacle {
+  background-color: gray !important;
+}
+
+/* Free cell color */
+.cell {
+  background-color: lightgrey;
+}
+
+/* Food color */
+.foodText {
+  color: darkgreen;
+  font-size: larger;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+/* Bug 1 base color */
+.base-bug1 {
+  background-color: lightgreen;
+}
+
+/* Bug 2 base color */
+.base-bug2 {
+  background-color: lightpink;
+}
+
+/* Color of cell with food */
+/* .food {
+  background-color: lightyellow;
+} */
+
+.bug {
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.bugImg {
+  height: 100%;
+}

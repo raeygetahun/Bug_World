@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bug World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./../styles/style.css" rel="stylesheet" />
+    <link href="./../styles/simulation.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,900italic,900,700italic,700,600italic,600,400italic,300italic,300,200italic" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/873c2a3470.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <!-- Settings and uploading file page -->
+    <form class="page" id="settings-page">
+      <h1 id="setting-title">Bug World</h1>
+
+      <!-- Upload World Map File -->
+      <div id="setting-options" class="container column option-container">
+        <div class="option" id="world-upload">
+          <div id="world-msg msg">Please upload a world map file:</div>
+          <label class="file-upload">
+            <input type="file" id="world-file" class="file" accept=".world" />
+            <div class="container gap">
+              <i class="fa-solid fa-upload"></i></div
+          ></label>
+        </div>
+
+        <!-- Upload Bug 1 File -->
+        <div class="option" id="bug1-upload">
+          <div id="bug1-msg msg">Please upload the bug assembler source code file #1:</div>
+          <label class="file-upload">
+            <input type="file" id="bug1-file" class="file" accept=".buggy" />
+            <div class="container gap">
+              <i class="fa-solid fa-upload"></i>
+            </div>
+          </label>
+        </div>
+
+        <!-- Upload Bug 2 File -->
+        <div class="option" id="bug2-upload">
+          <div id="bug2-msg msg">Please upload the bug assembler source code file #2:</div>
+          <label class="file-upload">
+            <input type="file" id="bug2-file" class="file" accept=".buggy" />
+            <div class="container gap">
+              <i class="fa-solid fa-upload"></i>
+            </div>
+          </label>
+        </div>
+
+        <!-- Set iterations -->
+        <div class="option" id="iterations">
+          <label class="msg" for="iterations-option">Please select the number of iterations:</label>
+          <input type="number" id="iterations-option" value="100" name="iterations" required />
+        </div>
+
+        <!-- Toggle logging -->
+        <div class="option" id="log">
+          <label class="msg" for="log-toggle">Do you want to log the results of the session?</label>
+          <input type="checkbox" name="log" id="log-toggle" />
+        </div>
+      </div>
+
+      <button id="next-btn">Next</button>
+    </form>
+
+    <div class="page gap-2 display-none" id="simulator">
+      <div class="container space-evenly w-75v" id="world">
+        <!-- World map -->
+        <div class="w-100p" id="map"></div>
+
+        <!-- Game statistics -->
+        <div class="container column space-evenly align-center m-2" id="statistics">
+          <button class="w-100p" id="option-btn">Options</button>
+
+          <button class="w-100p" id="quit-btn">Quit</button>
+
+          <!-- Number of iterations elapsed / left -->
+          <div class="statistic" id="iteration-count">
+            <div id="iteration-count-msg">Iterations:</div>
+            <div id="iteration-count-value"></div>
+          </div>
+
+          <!-- Undetected food -->
+          <div class="statistic" id="undetected-food">
+            <div id="undetected-food-msg">Amount of undetected-food:</div>
+            <div id="undetected-food-value"></div>
+          </div>
+
+          <div class="statistic" id="bugs-food">
+            <div id="bugs-food-msg">Amount of foods bugs are holding:</div>
+            <div id="bugs-food-value"></div>
+          </div>
+
+          <!-- Remaining Red bugs -->
+          <div class="statistic" id="remaining-red">
+            <div id="remaining-red-msg">Red bugs remaining:</div>
+            <div id="remaining-red-value"></div>
+          </div>
+
+          <!-- Killed Red bugs -->
+          <div class="statistic" id="dead-red">
+            <div id="dead-red-msg">Red bugs killed:</div>
+            <div id="dead-red-value"></div>
+          </div>
+
+          <!-- Food obtained by Red bugs -->
+          <div class="statistic" id="food-red">
+            <div id="food-red-msg">Food brought home for red bugs:</div>
+            <div id="food-red-value"></div>
+          </div>
+
+          <!-- Remaining Black bugs -->
+          <div class="statistic" id="remaining-black">
+            <div id="remaining-black-msg">Black bugs remaining:</div>
+            <div id="remaining-black-value"></div>
+          </div>
+
+          <!-- Killed Black bugs -->
+          <div class="statistic" id="dead-black">
+            <div id="dead-black-msg">Black bugs killed:</div>
+            <div id="dead-black-value"></div>
+          </div>
+
+          <!-- Food obtained by Black bugs -->
+          <div class="statistic" id="food-black">
+            <div id="food-black-msg">Food brought home for black bugs:</div>
+            <div id="food-black-value"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logs -->
+      <div class="p-1 text-center w-75v border-solid border-black border-w-01e" id="log-panel">Logs will be here.</div>
+    </div>
+
+    <!-- Quit Page -->
+    <div class="page display-none" id="quit-page">
+      <h1 id="quit-message">Do you really want to quit?</h1>
+
+      <div class="container row gap-2" id="quit-options">
+        <button id="quit-accept-btn">Yes</button>
+        <button id="quit-decline-btn">No</button>
+      </div>
+    </div>
+
+    <!-- Change Options Page -->
+    <div class="page display-none" id="options-page">
+      <h1 id="options-header">Options</h1>
+
+      <div class="container column justify-center option-container" id="game-options">
+        <!-- Change Bug 1 Color -->
+        <div class="option" id="bug1-color">
+          <label for="bug1-color">Change bugs' color #1</label>
+          <input type="text" name="bug1-color" id="bug1-color" required />
+        </div>
+
+        <!-- Change Bug 2 Color -->
+        <div class="option" id="bug2-color">
+          <div>Change bugs' color #2</div>
+          <input type="text" name="bug2-color" id="bug2-color" required />
+        </div>
+
+        <!-- Change number of iterations -->
+        <div class="option" id="iterationNumber">
+          <label for="iteration">Number of iterations:</label>
+          <input type="number" id="iteration" value="100" name="iteration" required />
+        </div>
+
+        <!-- Change duration of seconds -->
+        <div class="option" id="tick-duration">
+          <label for="ticks">The duration of a tick in seconds</label>
+          <input type="number" id="ticks" value="10" name="tick-duration" required />
+        </div>
+      </div>
+
+      <div class="container gap-2">
+        <button id="option-back-btn">Back</button>
+        <button id="option-save-btn">Save</button>
+      </div>
+    </div>
+  </body>
+
+  <script src="./../scripts/simulation.js" type="module"></script>
+</html>

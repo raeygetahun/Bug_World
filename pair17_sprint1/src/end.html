@@ -1,0 +1,30 @@
+<!-- Game end page -->
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>End Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./../styles/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,900italic,900,700italic,700,600italic,600,400italic,300italic,300,200italic" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Flex column with Game end message and restart button -->
+    <div class="container column space-evenly align-center w-100v h-100v">
+      <h1 id="game-end-msg">End of the Game</h1>
+      <button id="game-end-restart" onclick="takeToSet()">Restart</button>
+    </div>
+  </body>
+
+  <script>
+    /**
+     *
+     * Redirects to 'start.html'
+     */
+    function takeToSet() {
+      window.location.replace("start.html");
+    }
+  </script>
+</html>

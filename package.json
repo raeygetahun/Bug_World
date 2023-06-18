@@ -1,0 +1,22 @@
+{
+  "name": "pair17_sprint3",
+  "version": "1.0.0",
+  "description": "**BugWorld** is an environment of two swarms of bugs, where the goal of the bugs is to collect the most food and bring it back to their base. This is an implementation of the game using HTML, CSS, and Javascript. This project aims to implement an assembler to parse bug instructions, a GUI for the simulator, and the actual simulator itself.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "transpile": "babel src -d lib",
+    "test": "npm run transpile && jasmine --config=spec/support/jasmine.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "jasmine": "^4.6.0"
+  }
+}

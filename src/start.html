@@ -1,0 +1,30 @@
+<!-- Starting Page -->
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bug World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./../styles/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,900italic,900,700italic,700,600italic,600,400italic,300italic,300,200italic" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Flex column with welcome message and next button -->
+    <div class="container column space-evenly align-center w-100v h-100v">
+      <h1 id="welcome-msg">Welcome to Bug World!</h1>
+      <button id="welcome-btn" type="button" onclick="takeToSim()">Start</button>
+    </div>
+  </body>
+
+  <script>
+    /**
+     *
+     * Redirects to 'simulation.html'
+     */
+    function takeToSim() {
+      window.location.replace("simulation.html");
+    }
+  </script>
+</html>
